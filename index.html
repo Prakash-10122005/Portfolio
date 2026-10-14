@@ -330,19 +330,18 @@
                         <span>Suchindrum, Kanniyakumari-629704</span>
                     </div>
                 </div>
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn full-width">Send Message</button>
-                    <div id="formMessage" class="form-msg"></div>
-                </form>
+                <form action="https://formspree.io/f/xrpeyndz" method="POST" class="contact-form">
+    			<div class="form-group">
+   			     <input type="text" name="name" id="name" placeholder="Your Name" required>
+ 			</div>
+    			<div class="form-group">
+        			<input type="email" name="email" id="email" placeholder="Your Email" required>
+    			</div>
+    			<div class="form-group">
+        			<textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+    			</div>
+    			<button type="submit" class="btn primary-btn full-width">Send Message</button>
+		</form>
             </div>
         </div>
     </section>
