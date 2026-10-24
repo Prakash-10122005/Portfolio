@@ -51,6 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Certificates page: click to enlarge
+    const grid = document.querySelector('.cert-grid');
+    if (grid) {
+        const box = document.createElement('div');
+        box.className = 'lightbox';
+        box.innerHTML = '<img alt="">';
+        document.body.appendChild(box);
+        grid.addEventListener('click', (e) => {
+            const img = e.target.closest('.cert-grid-card')?.querySelector('img');
+            if (img) { box.firstChild.src = img.src; box.classList.add('open'); }
+        });
+        box.addEventListener('click', () => box.classList.remove('open'));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') box.classList.remove('open'); });
+    }
+
     // Contact form (unchanged behaviour)
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
