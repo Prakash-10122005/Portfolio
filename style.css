@@ -210,3 +210,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .cert-img-card { width: 280px; }
     .section { padding: 80px 0; }
 }
+
+/* View-all button under marquee */
+.view-all { text-align: center; margin-top: 40px; }
+
+/* Certificates page */
+.page-section { padding-top: 140px; min-height: 100vh; }
+.page-section .section-title { margin-bottom: 40px; }
+.page-sub { text-align: center; color: var(--text-secondary); margin-bottom: 50px; }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; max-width: 1200px; }
+.cert-grid-card {
+    background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box, linear-gradient(135deg, var(--border-color), var(--border-color)) border-box;
+    border: 1px solid transparent; border-radius: 16px; padding: 14px; cursor: zoom-in;
+    transition: transform .3s, box-shadow .3s, background .3s;
+}
+.cert-grid-card:hover { transform: translateY(-6px); background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box, var(--grad) border-box; box-shadow: var(--glow); }
+.cert-grid-card img { width: 100%; height: 210px; object-fit: cover; border-radius: 10px; display: block; }
+.cert-grid-card figcaption { margin-top: 12px; text-align: center; font-size: .95rem; font-weight: 600; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; background: rgba(5,3,12,.92); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 30px; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 80px rgba(168,85,247,.35); }
