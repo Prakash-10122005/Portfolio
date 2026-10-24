@@ -21,7 +21,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certificates</a></li>
+                    <li><a href="#internships">Internships</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -108,7 +109,7 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects & Internships</h2>
+            <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
@@ -135,7 +136,15 @@
                         <span>Frontend Technologies</span><span>Team Collaboration</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Internships Section -->
+    <section id="internships" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Internships</h2>
+            <div class="projects-grid">
                 <!-- Internship 1 -->
                 <div class="project-card">
                     <div class="project-header">
@@ -166,7 +175,7 @@
     </section>
 
     <!-- Certifications Section with Image Marquee Slider -->
-    <section id="certifications" class="section bg-light">
+    <section id="certifications" class="section">
         <div class="container">
             <h2 class="section-title">Certifications & Achievements</h2>
         </div>
@@ -307,10 +316,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="view-all">
+            <a href="certificates.html" class="btn primary-btn">View All Certificates</a>
+        </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-wrapper">
@@ -330,18 +343,19 @@
                         <span>Suchindrum, Kanniyakumari-629704</span>
                     </div>
                 </div>
-                <form action="https://formspree.io/f/xrpeyndz" method="POST" class="contact-form">
-    			<div class="form-group">
-   			     <input type="text" name="name" id="name" placeholder="Your Name" required>
- 			</div>
-    			<div class="form-group">
-        			<input type="email" name="email" id="email" placeholder="Your Email" required>
-    			</div>
-    			<div class="form-group">
-        			<textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
-    			</div>
-    			<button type="submit" class="btn primary-btn full-width">Send Message</button>
-		</form>
+                <form action="https://formspree.io/f/xrpeyndz" method="POST" id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn full-width">Send Message</button>
+                    <div id="formMessage" class="form-msg"></div>
+                </form>
             </div>
         </div>
     </section>
