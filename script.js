@@ -66,25 +66,38 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') box.classList.remove('open'); });
     }
 
-    // Contact form (unchanged behaviour)
+    // Contact form -> Formspree
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const original = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
 
-            if (name && email && message) {
-                formMessage.style.color = '#22c55e';
-                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
-                contactForm.reset();
-                setTimeout(() => { formMessage.textContent = ''; }, 5000);
-            } else {
+            try {
+                const res = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    formMessage.style.color = '#22c55e';
+                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Request failed');
+                }
+            } catch (err) {
                 formMessage.style.color = '#ef4444';
-                formMessage.textContent = 'Please fill in all fields before submitting.';
+                formMessage.textContent = 'Oops! Something went wrong. Please try again or email me directly.';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = original;
+                setTimeout(() => { formMessage.textContent = ''; }, 6000);
             }
         });
     }
